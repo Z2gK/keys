@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<cherrytree>
+	<node custom_icon_id="0" foreground="" is_bold="False" name="Scratchpad" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1545743029.54" ts_lastsave="1545743192.14" unique_id="1">
+		<rich_text>This node contains notes that tracks adhoc progress</rich_text>
+		<node custom_icon_id="0" foreground="" is_bold="False" name="2018-12-25" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1545743192.14" ts_lastsave="1545745226.19" unique_id="3">
+			<rich_text>
+</rich_text>
+			<rich_text scale="h1">Set up and conditions</rich_text>
+			<rich_text>
+
+SDR: Airspy
+Antenna: About 3m wire
+Distance between keyboard/cables to antenna: about 1m
+
+Two computers were used:
+1. The </rich_text>
+			<rich_text weight="heavy">observation laptop</rich_text>
+			<rich_text> - Airspy is attached to this laptop. We use it primarily for observing emissions
+2. The </rich_text>
+			<rich_text weight="heavy">target desktop</rich_text>
+			<rich_text> - this is the desktop to connect the 4 target USB keyboards to.
+
+USB charger in room was disconnected. The fan was switched off. Only lamp and desktop (for connecting target keyboard) were switched on
+Observation laptop was disconnected from the power supply. The LAN cable was also unplugged.
+
+</rich_text>
+			<rich_text scale="h1">Observations</rich_text>
+			<rich_text>
+
+• Noise floor around 36-37MHz region seemed to rise by about 3-5 dB when the keyboard was connected to the USB port (I used a USB cable extender). This is true for all 4 keyboards tested, with certain ones producing a more pronounced rise. </rich_text>
+			<rich_text weight="heavy">[TODO - attach screenshots to show subtle before and after]</rich_text>
+			<rich_text>
+
+• Keyboard-01 produced </rich_text>
+			<rich_text weight="heavy">very strong spikes</rich_text>
+			<rich_text> at 4 frequencies from 34-40 MHz range the moment it was connected. </rich_text>
+			<rich_text weight="heavy">[TODO - attach screenshots]</rich_text>
+			<rich_text>
+
+• The LAN cable (which I get internet connection from) on my observation laptop actually interferes with observations. It was noticed that the noise floor around 36-37MHz was raised and flattened when the LAN cable was connected to the observation laptop. </rich_text>
+			<rich_text weight="heavy">[To note for future observations]</rich_text>
+			<rich_text>
+
+
+
+</rich_text>
+		</node>
+	</node>
+	<node custom_icon_id="0" foreground="" is_bold="False" name="Documentation" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1545743133.32" ts_lastsave="1545743135.05" unique_id="2">
+		<rich_text>This node summarises more formal results. There is nothing here yet.</rich_text>
+	</node>
+</cherrytree>
