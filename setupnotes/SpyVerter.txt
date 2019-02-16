@@ -18,6 +18,13 @@ To test, tune in to a strong shortwave station. BBC is typically quite strong. S
 
 Sample rates of 8M and 4M seem to work best
 
+** A quick check was done by running the PM3 card reader so that 13.56 
+MHz emissions were seen. The frequency was accurate.
+
+*** A second check with the reference 13.56M frequency showed inaccuracies.
+
+**** A third check showed the 13.56M peak, along with other harmonics, 
+at 830kHz intervals.
 
 Linux as host; SDR# in VM taking input through USB interface
 ============================================================
@@ -42,3 +49,17 @@ LNB LO: -120.000 MHz
 For SW Broadcasts
 Filter width can be set to about 10k for good results. AGC set to slow. Mode set to AM.
 
+** When a check was done by running a 13.56MHz card reader nearby, the 
+frequency shown in the waterfall diagram was wrong the first time round 
+(it showed 15.6M). GQRX did not show the correct frequency. However, the 
+display was correct on the second try. GQRX could be a little erratic.
+
+With GNURadio
+=============
+
+With the upconverter, it is necessary to shift the offset of the frequency range of interest. The actual 0MHz should be at 120MHz of the SDR's display.
+
+** When the check was performed with 13.56MHz reference signal, the 15.6M signal showed up again. 
+
+*** Things went back to normal after running spyserver and SDR#. It is 
+always important to check the reference frequency.
