@@ -1,0 +1,44 @@
+Setting up the SpyVerter upconverter
+
+Physical Connections
+====================
+Computer -> USB cable -> AirSpy -> male/male SMA connector -> SpyVerter (the side with microUSB connector -> RF input
+
+
+Linux as host with Spy Server running; SDR# running in VM
+===========================================================
+Modify the spyserver config file by uncommenting these lines and changing it to:
+
+enable_bias_tee = 1
+converter_offset = -120000000
+
+Run SDR# in the VM and connect to spyserver. There is no need to configure "Shift" in the Radio section. Leave it unchecked.
+
+To test, tune in to a strong shortwave station. BBC is typically quite strong. SE Asia frequencies are at 6195, 9900, 12065, 5960, 7300, 3915, 5890 and 7445 at various times.
+
+Sample rates of 8M and 4M seem to work best
+
+
+Linux as host; SDR# in VM taking input through USB interface
+============================================================
+The VM setting needs to be configured
+1. Audio needs to be enabled. In my case, ALSA Audio Driver with Intel HD Audio works. The extended features need to be both enabled.
+
+2. Airspy uses USB2. The device needs to be configured to be recognised by VirtualBox when connected.
+
+
+In the Source section, AIRSPY should be chosen. The Linearity option should be set. The sample rate of 10Msps seems to be too much. SW Broadcasts can be heard using 2.5Msps instead. Bias-Tee should be checked. It doesn't seem to make any difference whether SpyVerter is checked or not.
+
+In the Radio section, AM should be selected. Shift should be checked and set to -120,000,000. For SW broadcast, a bandwidth of 5k seems to work fine. 10k is better.
+
+
+Running GQRX
+============
+Under configure IO devices:
+Device string: airspy=0,bias=1
+Input rate: 10000000
+LNB LO: -120.000 MHz
+
+For SW Broadcasts
+Filter width can be set to about 10k for good results. AGC set to slow. Mode set to AM.
+
