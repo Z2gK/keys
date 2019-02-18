@@ -37,7 +37,7 @@ driftfile /var/lib/chrony/drift
 server <Server-IP> iburst iburst  # Unfortunately, since we don't use DNS and we're on DHCP, we need to manually edit this everytime
 logdir /var/log/chrony
 log measurements statistics tracking
-
+makestep 1.0 -1       # This is important if the client is way out of sync - "1.0" is in units of seconds. If the time difference is greater than this number, chrony will make "-1" number of corrections. If this is set to -1, chrony makes an indefinite number of corrections until it is correct. 
 
 Start the service:
 systemctl start chronyd
