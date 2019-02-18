@@ -1,0 +1,52 @@
+
+
+Server
+======
+* Configuring chrony
+Edit the /etc/chrony.conf file by uncommenting/editing the following lines:
+
+
+driftfile /var/lib/chrony/drift
+
+allow 192.168.??/24     # Replace this with the range allowed to connect to the server
+
+local stratum 10
+
+
+
+* Configuring iptables
+These need to be run once with root privileges
+
+iptables -N UDP
+iptables -A UDP -p udp -m udp --dport 123 -j ACCEPT
+iptables-save > /etc/iptables/iptables.rules
+
+Then, start the firewall service
+systemctl start iptables.service
+
+Start chronyd as well
+systemctl start chronyd
+
+
+Client
+======
+* Configuring chrony
+Edit the /etc/chrony.conf file by uncommenting/editing the following lines:
+
+driftfile /var/lib/chrony/drift
+server <Server-IP> iburst iburst  # Unfortunately, since we don't use DNS and we're on DHCP, we need to manually edit this everytime
+logdir /var/log/chrony
+log measurements statistics tracking
+
+
+Start the service:
+systemctl start chronyd
+
+
+
+References
+==========
+
+https://www.tecmint.com/install-chrony-in-centos-ubuntu-linux/
+https://www.ostechnix.com/chrony-an-alternative-ntp-client-and-server-for-unix-like-systems/
+https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0070360.html
