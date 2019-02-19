@@ -1,0 +1,4 @@
+https://www.gnuradio.org/doc/doxygen/page_metadata.html
+https://stackoverflow.com/questions/36055644/how-to-edit-the-file-generated-by-file-sink-of-gnu-radio
+
+There is an option in GNU Radio Meta File Sink to detach the metadata information from the raw data - this is probably preferred.
