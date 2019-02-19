@@ -2,3 +2,8 @@ https://www.gnuradio.org/doc/doxygen/page_metadata.html
 https://stackoverflow.com/questions/36055644/how-to-edit-the-file-generated-by-file-sink-of-gnu-radio
 
 There is an option in GNU Radio Meta File Sink to detach the metadata information from the raw data - this is probably preferred.
+
+But looking at the dump from different times, the metadata seems to stay constant..
+
+The parse_header function takes in a PMT dictionary - could we simply pass the 150 byte blob into the function?
+
