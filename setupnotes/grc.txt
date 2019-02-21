@@ -7,3 +7,7 @@ But looking at the dump from different times, the metadata seems to stay constan
 
 The parse_header function takes in a PMT dictionary - could we simply pass the 150 byte blob into the function?
 
+https://github.com/gnuradio/gnuradio/blob/master/gr-utils/python/utils/gr_read_file_metadata
+
+https://wiki.gnuradio.org/index.php/Stream_Tags
+https://wiki.gnuradio.org/index.php/Metadata_Information
