@@ -1,0 +1,28 @@
+1. Turn on wireless router.
+
+2a) On emission capturing machine, start chronyd
+2b) Check that chronyd is running and port 123 is open
+
+3.  connect emission capturing machine to the wireless router.
+
+4. Turn on RPi, with keyboard connected. It should connect to wireless router automatically
+
+5. From emission capturing machine, check the IP address of RPi and ssh in.
+
+6a) Check the keyboard capturing device on the RPi (/dev/input/event?) and modify /etc/chrony.conf accordingly
+6b) Start chronyd on RPi and check that time is synced.
+6c) Run the getkeypress*.py script and ensure that keypresses are captured.
+
+7a) On the emission capturing machine, start SpyServer, with SpyVerter activated.
+7b) Check on SDR# and GNURadio that 0-8MHz is captured correctly and keypresses are visible
+
+
+
+Getting data
+============
+1. Run getkeypress*.py on the RPi with root privileges
+2. Run the GNURadio capture flowgraph
+3. Press keys
+4. Stop the GNURadio flowgraph
+5. Stop the getkeypress*.py on RPi, save output to a file and copy the file over for analysis
+6. Save IQ data and the keypress output in a directory for later analysis. Capture the timestamp IQ data file.
