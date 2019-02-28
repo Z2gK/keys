@@ -24,22 +24,25 @@ n_samplesfromback = int((endtimestamp - keydowntimestamp)/timepersample)
 
 print("Number of samples from back: {}".format(n_samplesfromback))
 
-running_mean = np.convolve(a, np.ones(n_samplesinwindow,)/n_samplesinwindow, mode='valid')
+#running_mean = np.convolve(a, np.ones(n_samplesinwindow,)/n_samplesinwindow, mode='valid')
 
-plt.plot(running_mean)
+#plt.plot(running_mean)
 
-#plt.subplot(1,1,1)
-#dataslice1 = a[-n_samplesfromback:-n_samplesfromback+n_samplesinwindow]
-#print(len(dataslice1))
-#plt.plot(dataslice1)
+plt.subplot(2,1,1)
+dataslice1 = a[-n_samplesfromback:-n_samplesfromback+n_samplesinwindow]
+print(len(dataslice1))
+plt.plot(dataslice1)
 
-#plt.subplot(3,1,2)
-#dataslice2 = a[-n_samplesfromback-n_samplesinwindow:-n_samplesfromback]
-#print(len(dataslice2))
-#plt.plot(dataslice2)
+plt.subplot(2,1,2)
+dataslice2 = a[-n_samplesfromback-n_samplesinwindow:-n_samplesfromback]
+print(len(dataslice2))
+plt.plot(dataslice2)
 
 #plt.subplot(3,1,3)
 #dataslice3 = dataslice1 - dataslice2
 #plt.plot(dataslice3)
 
 plt.show()
+
+# Exploratory data analysis
+#print(np.max(a))

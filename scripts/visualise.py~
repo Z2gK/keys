@@ -1,5 +1,0 @@
-import sys
-
-# Visualise 100ms worth of time domain signal
-windowsize = 100e-3
-
