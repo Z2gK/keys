@@ -46,3 +46,7 @@ plt.show()
 
 # Exploratory data analysis
 #print(np.max(a))
+
+
+# Code for sliding window max
+# b = [np.max(a[x:x+40000]) for x in range(0,118055956,40000)]
