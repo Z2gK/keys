@@ -15,7 +15,8 @@ fp = open(sys.argv[1])
 a = scipy.fromfile(fp, dtype=scipy.float32)
 fp.close()
 
-print("Total number of samples in file: {}".format(len(a)))
+n_samplestotal = len(a)
+print("Total number of samples in file: {}".format(n_samplestotal))
 
 timepersample = 1.0/samplerate
 n_samplesinwindow = int(windowsize/timepersample)
@@ -28,25 +29,48 @@ print("Number of samples from back: {}".format(n_samplesfromback))
 
 #plt.plot(running_mean)
 
-plt.subplot(2,1,1)
-dataslice1 = a[-n_samplesfromback:-n_samplesfromback+n_samplesinwindow]
-print(len(dataslice1))
-plt.plot(dataslice1)
+#plt.subplot(2,1,1)
+#dataslice1 = a[-n_samplesfromback:-n_samplesfromback+n_samplesinwindow]
+#print(len(dataslice1))
+#plt.plot(dataslice1)
 
-plt.subplot(2,1,2)
-dataslice2 = a[-n_samplesfromback-n_samplesinwindow:-n_samplesfromback]
-print(len(dataslice2))
-plt.plot(dataslice2)
+#plt.subplot(2,1,2)
+#dataslice2 = a[-n_samplesfromback-n_samplesinwindow:-n_samplesfromback]
+#print(len(dataslice2))
+#plt.plot(dataslice2)
 
 #plt.subplot(3,1,3)
 #dataslice3 = dataslice1 - dataslice2
 #plt.plot(dataslice3)
 
-plt.show()
+#plt.show()
 
 # Exploratory data analysis
 #print(np.max(a))
 
 
-# Code for sliding window max
-# b = [np.max(a[x:x+40000]) for x in range(0,118055956,40000)]
+# Code for sliding window max - applies to dummy03
+# Also plot the windows
+# timeslices = [(1550981596.312444, 1550981596.392425),
+#              (1550981596.688417, 1550981596.784408),
+#              (1550981597.40411, 1550981597.128403),
+#              (1550981599.896386,1550981599.960376)]
+
+subwindow = int(n_samplestotal/10)
+
+aggregatewindow = 40000
+b = [np.max(a[x:x+aggregatewindow]) for x in range(1*subwindow,(1+1)*subwindow,aggregatewindow)]
+plt.plot(b)
+
+#b = [np.max(a[x:x+40000]) for x in range(0,n_samplestotal,40000)]
+#plt.plot(b)
+
+# plot time slices
+#for slice in timeslices:
+#    start = slice[0]
+#    end = slice[1]
+#    start_in_plot = (n_samplestotal - (endtimestamp - start)/(1/4e6))/aggregatewindow
+    # end_in_plot = (n_samplestotal - (endtimestamp - end)/(1/4e6))/aggregatewindow
+#    plt.plot((start_in_plot,start_in_plot), (0.1,0.04), 'r')
+
+plt.show()
