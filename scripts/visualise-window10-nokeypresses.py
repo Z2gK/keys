@@ -65,31 +65,6 @@ print("Length of section in original file: {}".format(len(a_section)))
 print("Number of samples in aggregated section: {}".format(len(b)))
 
 plt.plot(b)
-
-# Now read the keypress file and see which keypresses are within the plotted range
-keydownevents = []
-for line in keypressfp:
-    keypressline = line.strip().split(",")
-
-    if ((keypressline[0] == "1") and (keypressline[2] == "1")):
-        # key down event
-        keyval = int(keypressline[1])
-        timestamp = float(keypressline[3])
-        keydownevents.append((keyval,timestamp))
-
-# print(keydownevents)
-# determine if event in within plotting window. If so, plot it
-# offset is the human determined error between keypress time stamp and the actual on the IQ capture
-offset = 6500000 # for normal operation just set this to 0. This is in number of samples in original capture
-for event in keydownevents:
-    timestamp = event[1]
-    samplesfromstart = int(n_samplestotal - (endtimestamp - timestamp)/timepersample)
-    samplesfromstart = samplesfromstart + offset
-    #    print((endtimestamp - timestamp)/timepersample)
-    if ((samplesfromstart >= section_start_idx) and (samplesfromstart <= section_end_idx)):
-        # This event is within our window - plot it
-        eventidx = int((samplesfromstart - section_start_idx)/aggregatewindow)
-        plt.plot((eventidx,eventidx),(0.1,0.04),'r')
-        
-
+plt.xlabel("Samples")
+plt.ylabel("Amplitude of signal")
 plt.show()
