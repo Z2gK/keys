@@ -66,7 +66,9 @@ print("Number of samples in aggregated section: {}".format(len(b)))
 
 plt.plot(b)
 # plt.rcParams.update({'font.size': 36})
-plt.xlabel("Samples", fontsize = 14)
-plt.ylabel("Signal Amplitude", fontsize = 14)
-
+commonfontsize = 14
+plt.xlabel("Samples (x 10000)", fontsize = commonfontsize)
+plt.ylabel("Signal Amplitude", fontsize = commonfontsize)
+plt.xticks(fontsize = commonfontsize)
+plt.yticks(fontsize = commonfontsize)
 plt.show()

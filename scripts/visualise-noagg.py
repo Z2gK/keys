@@ -24,6 +24,9 @@ if (len(sys.argv) == 4):
     start_idx = int(sys.argv[2])
     end_idx = int(sys.argv[3])
     plt.plot(a[start_idx:end_idx], linestyle=None, markersize = 1.0)
+    commonfontsize = 14
     plt.xlabel("Samples", fontsize = 14)
     plt.ylabel("Signal Amplitude", fontsize = 14)
+    plt.xticks(fontsize = commonfontsize)
+    plt.yticks(fontsize = commonfontsize)
     plt.show()
