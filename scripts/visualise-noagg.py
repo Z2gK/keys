@@ -24,6 +24,6 @@ if (len(sys.argv) == 4):
     start_idx = int(sys.argv[2])
     end_idx = int(sys.argv[3])
     plt.plot(a[start_idx:end_idx], linestyle=None, markersize = 1.0)
-    plt.xlabel("Samples")
-    plt.ylabel("Amplitude")
+    plt.xlabel("Samples", fontsize = 14)
+    plt.ylabel("Signal Amplitude", fontsize = 14)
     plt.show()

@@ -65,6 +65,8 @@ print("Length of section in original file: {}".format(len(a_section)))
 print("Number of samples in aggregated section: {}".format(len(b)))
 
 plt.plot(b)
-plt.xlabel("Samples")
-plt.ylabel("Amplitude of signal")
+# plt.rcParams.update({'font.size': 36})
+plt.xlabel("Samples", fontsize = 14)
+plt.ylabel("Signal Amplitude", fontsize = 14)
+
 plt.show()
